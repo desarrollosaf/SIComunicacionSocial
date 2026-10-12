@@ -1,3 +1,4 @@
+import { BASE_PATH } from "@/lib/basePath";
 
 export default async function GaleriaPage() {
   return (
@@ -23,11 +24,11 @@ export default async function GaleriaPage() {
       </div>
       <div className="div-galeria">
         <div className="w-layout-grid grid-4">
-            <img src="images/Logotiposoficiales.webp" loading="lazy" sizes="(max-width: 479px) 48vw, (max-width: 2040px) 49vw, 1000px" srcSet="images/Logotiposoficiales-p-500.webp 500w, images/Logotiposoficiales-p-800.webp 800w, images/Logotiposoficiales.webp 1000w" alt="" className="img-centrada"/>
-            <img src="images/Logotiposoficiales.webp" loading="lazy" sizes="(max-width: 479px) 48vw, (max-width: 2040px) 49vw, 1000px" srcSet="images/Logotiposoficiales-p-500.webp 500w, images/Logotiposoficiales-p-800.webp 800w, images/Logotiposoficiales.webp 1000w" alt="" className="img-centrada"/>
-            <img src="images/Logotiposoficiales.webp" loading="lazy" sizes="(max-width: 479px) 48vw, (max-width: 2040px) 49vw, 1000px" srcSet="images/Logotiposoficiales-p-500.webp 500w, images/Logotiposoficiales-p-800.webp 800w, images/Logotiposoficiales.webp 1000w" alt="" className="img-centrada"/>
-            <img src="images/Logotiposoficiales.webp" loading="lazy" sizes="(max-width: 479px) 48vw, (max-width: 2040px) 49vw, 1000px" srcSet="images/Logotiposoficiales-p-500.webp 500w, images/Logotiposoficiales-p-800.webp 800w, images/Logotiposoficiales.webp 1000w" alt="" className="img-centrada"/>
-            <img src="images/Logotiposoficiales.webp" loading="lazy" sizes="(max-width: 479px) 48vw, (max-width: 2040px) 49vw, 1000px" srcSet="images/Logotiposoficiales-p-500.webp 500w, images/Logotiposoficiales-p-800.webp 800w, images/Logotiposoficiales.webp 1000w" alt="" className="img-centrada"/>
+            <img src={`${BASE_PATH}/images/Logotiposoficiales.webp`} loading="lazy" sizes="(max-width: 479px) 48vw, (max-width: 2040px) 49vw, 1000px" srcSet={`${BASE_PATH}/images/Logotiposoficiales-p-500.webp 500w, ${BASE_PATH}/images/Logotiposoficiales-p-800.webp 800w, ${BASE_PATH}/images/Logotiposoficiales.webp 1000w`} alt="" className="img-centrada"/>
+            <img src={`${BASE_PATH}/images/Logotiposoficiales.webp`} loading="lazy" sizes="(max-width: 479px) 48vw, (max-width: 2040px) 49vw, 1000px" srcSet={`${BASE_PATH}/images/Logotiposoficiales-p-500.webp 500w, ${BASE_PATH}/images/Logotiposoficiales-p-800.webp 800w, ${BASE_PATH}/images/Logotiposoficiales.webp 1000w`} alt="" className="img-centrada"/>
+            <img src={`${BASE_PATH}/images/Logotiposoficiales.webp`} loading="lazy" sizes="(max-width: 479px) 48vw, (max-width: 2040px) 49vw, 1000px" srcSet={`${BASE_PATH}/images/Logotiposoficiales-p-500.webp 500w, ${BASE_PATH}/images/Logotiposoficiales-p-800.webp 800w, ${BASE_PATH}/images/Logotiposoficiales.webp 1000w`} alt="" className="img-centrada"/>
+            <img src={`${BASE_PATH}/images/Logotiposoficiales.webp`} loading="lazy" sizes="(max-width: 479px) 48vw, (max-width: 2040px) 49vw, 1000px" srcSet={`${BASE_PATH}/images/Logotiposoficiales-p-500.webp 500w, ${BASE_PATH}/images/Logotiposoficiales-p-800.webp 800w, ${BASE_PATH}/images/Logotiposoficiales.webp 1000w`} alt="" className="img-centrada"/>
+            <img src={`${BASE_PATH}/images/Logotiposoficiales.webp`} loading="lazy" sizes="(max-width: 479px) 48vw, (max-width: 2040px) 49vw, 1000px" srcSet={`${BASE_PATH}/images/Logotiposoficiales-p-500.webp 500w, ${BASE_PATH}/images/Logotiposoficiales-p-800.webp 800w, ${BASE_PATH}/images/Logotiposoficiales.webp 1000w`} alt="" className="img-centrada"/>
         </div>
       </div>
     </section>

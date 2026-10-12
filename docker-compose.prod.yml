@@ -1,0 +1,18 @@
+services:
+  frontend:
+    build:
+      context: .
+      dockerfile: Dockerfile.prod
+      args:
+        BASE_PATH: /DGCS
+        NEXT_PUBLIC_API_URL: ${NEXT_PUBLIC_API_URL}
+        NEXT_PUBLIC_EXTERNAL_API_URL: ${NEXT_PUBLIC_EXTERNAL_API_URL}
+    image: sicomunicacion-social:prod
+    container_name: sicomunicacion-social-prod
+    environment:
+      # Variables leídas en el servidor en tiempo de ejecución
+      API_URL: ${API_URL}
+      EXTERNAL_API_URL: ${EXTERNAL_API_URL}
+    ports:
+      - "${PORT:-3000}:3000"
+    restart: unless-stopped

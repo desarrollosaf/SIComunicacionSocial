@@ -1,3 +1,4 @@
+import { BASE_PATH } from "@/lib/basePath";
 import * as https from 'https';
 
 function getApiUrl() {
@@ -185,7 +186,7 @@ export async function fetchIniciativasDiputado(diputadoId: string, page: number 
 
 export async function getVotosPunto(id: string | number) {
   try {
-    const res = await fetch(`/api/votaciones/${id}`, {
+    const res = await fetch(`${BASE_PATH}/api/votaciones/${id}`, {
       cache: 'no-store',
     });
     if (!res.ok) {
