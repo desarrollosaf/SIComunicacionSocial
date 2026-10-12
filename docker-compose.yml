@@ -1,0 +1,12 @@
+
+services:
+  frontend:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        NEXT_PUBLIC_API_URL: http://host.docker.internal:3001
+    container_name: sicomunicacion-social
+    ports:
+      - "3000:3000"
+    restart: unless-stopped
