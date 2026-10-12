@@ -1,6 +1,6 @@
 export async function getDialogo() {
   try {
-    const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/dialogo`, {
+    const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/dialogos`, {
     cache: "no-store",
   });
      if (!res.ok) {
