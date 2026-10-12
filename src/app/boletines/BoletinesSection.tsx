@@ -1,5 +1,6 @@
 'use client';
 
+import { BASE_PATH } from "@/lib/basePath";
 import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 
@@ -100,7 +101,7 @@ export default function BoletinesSection({ boletin, boletines } : Props) {
         for (let i = 0; i < fotos.length; i += COLS) {
             const cells = fotos.slice(i, i + COLS).map((f: any) =>
                 `<td style="padding:4px; text-align:center;">
-                    <img src="/api/proxy-image?url=${BASE}${f.path}"
+                    <img src="${BASE_PATH}/api/proxy-image?url=${BASE}${f.path}"
                          width="${IMG_W}" height="${IMG_H}"
                          style="display:block; width:${IMG_W}px; height:${IMG_H}px; object-fit:cover; border-radius:6px;" />
                 </td>`
@@ -333,7 +334,7 @@ export default function BoletinesSection({ boletin, boletines } : Props) {
                                 year: 'numeric',
                             })}
                         </div>
-                        <a href={`/boletines/${bol.id}`} className="btn-var-2 w-button">Leer el boletín</a>
+                        <a href={`${BASE_PATH}/boletines/${bol.id}`} className="btn-var-2 w-button">Leer el boletín</a>
                     </div>
                 ) : null)}
             </div>

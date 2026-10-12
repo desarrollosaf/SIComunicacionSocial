@@ -1,33 +1,34 @@
 "use client";
 
+import { BASE_PATH } from "@/lib/basePath";
 import { useState} from "react";
 
 const imagenes = [
   {
-    src: "/images/IMG_Sala_de_prensa_4.webp",
+    src: BASE_PATH + "/images/IMG_Sala_de_prensa_4.webp",
     srcSet:
-      "/images/IMG_Sala_de_prensa_4-p-500.webp 500w, " +
-      "/images/IMG_Sala_de_prensa_4-p-800.webp 800w, " +
-      "/images/IMG_Sala_de_prensa_4-p-1080.webp 1080w, " +
-      "/images/IMG_Sala_de_prensa_4.webp 1600w",
+      BASE_PATH + "/images/IMG_Sala_de_prensa_4-p-500.webp 500w, " +
+      BASE_PATH + "/images/IMG_Sala_de_prensa_4-p-800.webp 800w, " +
+      BASE_PATH + "/images/IMG_Sala_de_prensa_4-p-1080.webp 1080w, " +
+      BASE_PATH + "/images/IMG_Sala_de_prensa_4.webp 1600w",
     alt: "Sala de prensa, imagen 4",
   },
   {
-    src: "/images/IMG_Sala_de_prensa_2.webp",
+    src: BASE_PATH + "/images/IMG_Sala_de_prensa_2.webp",
     srcSet:
-      "/images/IMG_Sala_de_prensa_2-p-500.webp 500w, " +
-      "/images/IMG_Sala_de_prensa_2-p-800.webp 800w, " +
-      "/images/IMG_Sala_de_prensa_2-p-1080.webp 1080w, " +
-      "/images/IMG_Sala_de_prensa_2.webp 1600w",
+      BASE_PATH + "/images/IMG_Sala_de_prensa_2-p-500.webp 500w, " +
+      BASE_PATH + "/images/IMG_Sala_de_prensa_2-p-800.webp 800w, " +
+      BASE_PATH + "/images/IMG_Sala_de_prensa_2-p-1080.webp 1080w, " +
+      BASE_PATH + "/images/IMG_Sala_de_prensa_2.webp 1600w",
     alt: "Sala de prensa, imagen 2",
   },
   {
-    src: "/images/IMG_Sala_de_prensa_3.webp",
+    src: BASE_PATH + "/images/IMG_Sala_de_prensa_3.webp",
     srcSet:
-      "/images/IMG_Sala_de_prensa_3-p-500.webp 500w, " +
-      "/images/IMG_Sala_de_prensa_3-p-800.webp 800w, " +
-      "/images/IMG_Sala_de_prensa_3-p-1080.webp 1080w, " +
-      "/images/IMG_Sala_de_prensa_3.webp 1600w",
+      BASE_PATH + "/images/IMG_Sala_de_prensa_3-p-500.webp 500w, " +
+      BASE_PATH + "/images/IMG_Sala_de_prensa_3-p-800.webp 800w, " +
+      BASE_PATH + "/images/IMG_Sala_de_prensa_3-p-1080.webp 1080w, " +
+      BASE_PATH + "/images/IMG_Sala_de_prensa_3.webp 1600w",
     alt: "Sala de prensa, imagen 3",
   },
 ];
@@ -52,13 +53,13 @@ export default function SalaPrensaPage() {
           <div className="w-col w-col-6">
             <p className="texto-general-18">Este espacio cuenta con equipo de cómputo, acceso a internet y servicio de circuito cerrado de televisión (CCTV), mediante el cual se transmiten en tiempo real las sesiones del Pleno, reuniones de comisiones legislativas, así como eventos y actividades de las diputadas, diputade y diputados.<br/><br/>A través de este servicio, la Dirección General de Comunicación Social facilita las condiciones necesarias para que las y los periodistas desarrollen su labor informativa de manera eficiente, oportuna y con acceso a información institucional confiable.</p>
           </div>
-          <div className="column-11 w-col w-col-6"><img src="images/Sala_de_prensa_general.jpeg" loading="lazy" sizes="(max-width: 479px) 96vw, (max-width: 767px) 97vw, (max-width: 991px) 48vw, (max-width: 3265px) 49vw, 1600px" srcSet="images/Sala_de_prensa_general-p-500.jpeg 500w, images/Sala_de_prensa_general-p-800.jpeg 800w, images/Sala_de_prensa_general-p-1080.jpeg 1080w, images/Sala_de_prensa_general.jpeg 1600w" alt="" className="img-500"/></div>
+          <div className="column-11 w-col w-col-6"><img src={`${BASE_PATH}/images/Sala_de_prensa_general.jpeg`} loading="lazy" sizes="(max-width: 479px) 96vw, (max-width: 767px) 97vw, (max-width: 991px) 48vw, (max-width: 3265px) 49vw, 1600px" srcSet={`${BASE_PATH}/images/Sala_de_prensa_general-p-500.jpeg 500w, ${BASE_PATH}/images/Sala_de_prensa_general-p-800.jpeg 800w, ${BASE_PATH}/images/Sala_de_prensa_general-p-1080.jpeg 1080w, ${BASE_PATH}/images/Sala_de_prensa_general.jpeg 1600w`} alt="" className="img-500"/></div>
         </div>
         <div className="div_ligthbox">
           {/* <a href="#" className="lightbox-link w-inline-block w-lightbox"> */}
-            {/* <img src="images/IMG_Sala_de_prensa_4.webp" loading="lazy" sizes="(max-width: 1600px) 100vw, 1600px" srcSet="images/IMG_Sala_de_prensa_4-p-500.webp 500w, images/IMG_Sala_de_prensa_4-p-800.webp 800w, images/IMG_Sala_de_prensa_4-p-1080.webp 1080w, images/IMG_Sala_de_prensa_4.webp 1600w" alt="" className="img-250px"/>
-            <img src="images/IMG_Sala_de_prensa_2.webp" loading="lazy" sizes="(max-width: 1600px) 100vw, 1600px" srcSet="images/IMG_Sala_de_prensa_2-p-500.webp 500w, images/IMG_Sala_de_prensa_2-p-800.webp 800w, images/IMG_Sala_de_prensa_2-p-1080.webp 1080w, images/IMG_Sala_de_prensa_2.webp 1600w" alt="" className="img-250px"/>
-            <img src="images/IMG_Sala_de_prensa_3.webp" loading="lazy" sizes="(max-width: 1600px) 100vw, 1600px" srcSet="images/IMG_Sala_de_prensa_3-p-500.webp 500w, images/IMG_Sala_de_prensa_3-p-800.webp 800w, images/IMG_Sala_de_prensa_3-p-1080.webp 1080w, images/IMG_Sala_de_prensa_3.webp 1600w" alt="" className="img-250px"/> */}
+            {/* <img src={`${BASE_PATH}/images/IMG_Sala_de_prensa_4.webp`} loading="lazy" sizes="(max-width: 1600px) 100vw, 1600px" srcSet={`${BASE_PATH}/images/IMG_Sala_de_prensa_4-p-500.webp 500w, ${BASE_PATH}/images/IMG_Sala_de_prensa_4-p-800.webp 800w, ${BASE_PATH}/images/IMG_Sala_de_prensa_4-p-1080.webp 1080w, ${BASE_PATH}/images/IMG_Sala_de_prensa_4.webp 1600w`} alt="" className="img-250px"/>
+            <img src={`${BASE_PATH}/images/IMG_Sala_de_prensa_2.webp`} loading="lazy" sizes="(max-width: 1600px) 100vw, 1600px" srcSet={`${BASE_PATH}/images/IMG_Sala_de_prensa_2-p-500.webp 500w, ${BASE_PATH}/images/IMG_Sala_de_prensa_2-p-800.webp 800w, ${BASE_PATH}/images/IMG_Sala_de_prensa_2-p-1080.webp 1080w, ${BASE_PATH}/images/IMG_Sala_de_prensa_2.webp 1600w`} alt="" className="img-250px"/>
+            <img src={`${BASE_PATH}/images/IMG_Sala_de_prensa_3.webp`} loading="lazy" sizes="(max-width: 1600px) 100vw, 1600px" srcSet={`${BASE_PATH}/images/IMG_Sala_de_prensa_3-p-500.webp 500w, ${BASE_PATH}/images/IMG_Sala_de_prensa_3-p-800.webp 800w, ${BASE_PATH}/images/IMG_Sala_de_prensa_3-p-1080.webp 1080w, ${BASE_PATH}/images/IMG_Sala_de_prensa_3.webp 1600w`} alt="" className="img-250px"/> */}
           <div className="lightbox-link w-inline-block w-lightbox">
             {imagenes.map((imagen) => (
             <button
@@ -110,7 +111,7 @@ export default function SalaPrensaPage() {
   <div className="close-area">
     <div className="div-section-general">
       <div className="columna-centrado w-row">
-        <div className="column-12 w-col w-col-6"><img src="images/prensa_2.webp" loading="lazy" sizes="(max-width: 479px) 96vw, (max-width: 767px) 97vw, (max-width: 991px) 48vw, (max-width: 3265px) 49vw, 1600px" srcSet="images/prensa_2-p-500.webp 500w, images/prensa_2-p-800.webp 800w, images/prensa_2-p-1080.webp 1080w, images/prensa_2.webp 1600w" alt="" className="img-500"/></div>
+        <div className="column-12 w-col w-col-6"><img src={`${BASE_PATH}/images/prensa_2.webp`} loading="lazy" sizes="(max-width: 479px) 96vw, (max-width: 767px) 97vw, (max-width: 991px) 48vw, (max-width: 3265px) 49vw, 1600px" srcSet={`${BASE_PATH}/images/prensa_2-p-500.webp 500w, ${BASE_PATH}/images/prensa_2-p-800.webp 800w, ${BASE_PATH}/images/prensa_2-p-1080.webp 1080w, ${BASE_PATH}/images/prensa_2.webp 1600w`} alt="" className="img-500"/></div>
         <div className="w-col w-col-6">
           <div className="div-acreditaciones">
             <h1 className="h2">Acreditaciones</h1>

@@ -1,3 +1,4 @@
+import { BASE_PATH } from "@/lib/basePath";
 export default function SintesisSection() {
     return (
         <div className="div-sintesis">
@@ -6,7 +7,7 @@ export default function SintesisSection() {
                 <p className="texto-general-centrado">Monitoreamos y analizamos la cobertura mediática del Congreso del Estado de México para generar reportes oportunos sobre menciones, publicaciones, portadas y contenidos informativos de interés.</p>
             </div>
             <div className="div-sintesis-botones">
-                <a href={`/sintesis-informativa`} className="btn-var-3 w-button">Ver las síntesis</a>
+                <a href={`${BASE_PATH}/sintesis-informativa`} className="btn-var-3 w-button">Ver las síntesis</a>
             </div>
         </div>
     )

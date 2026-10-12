@@ -1,3 +1,4 @@
+import { BASE_PATH } from "@/lib/basePath";
 import { getBoletines } from '@/app/service/boletines.api';
 import BoletinesHomeSection from "@/components/BoletinesHomeSection";
 import DialogoSection from '@/components/DialogoSection';
@@ -19,7 +20,7 @@ export default async function Page() {
   return (
     <section className="main">
         <div className="hero">
-            <img src="images/Direccion-general-de-comunicacion-social.png" loading="lazy" alt="" className="img-high-60"/>
+            <img src={`${BASE_PATH}/images/Direccion-general-de-comunicacion-social.png`} loading="lazy" alt="" className="img-high-60"/>
         </div>
         <BoletinesHomeSection mainBoletines = {mainBoletines}></BoletinesHomeSection>
         <SalaPrensaSection></SalaPrensaSection>

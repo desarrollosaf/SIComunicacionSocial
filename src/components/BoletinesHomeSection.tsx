@@ -1,3 +1,4 @@
+import { BASE_PATH } from "@/lib/basePath";
 import Link from 'next/link';
 
 type Boletin = {
@@ -30,7 +31,7 @@ const formatearFecha = (fecha?: string) => {
 
 const getImageUrl = (boletin?: Boletin) => {
   const path = boletin?.fotos?.[0]?.path;
-  return path ? `${BASE_IMG}/${path}`.replace(/([^:]\/)\/+/g, '$1') : '/images/placeholder.png';
+  return path ? `${BASE_IMG}/${path}`.replace(/([^:]\/)\/+/g, '$1') : `${BASE_PATH}/images/placeholder.png`;
 };
 
 export default function BoletinesHomeSection({ mainBoletines }: Props) {
