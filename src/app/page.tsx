@@ -6,11 +6,15 @@ import RedesSocialesSection from '@/components/RedesSocialesSection';
 import SalaPrensaSection from '@/components/SalaPrensaSection';
 import SintesisSection from '@/components/SintesisSection';
 import TransmisionSection from '@/components/TransmisionSection';
+import { getDialogo } from './service/dialogo.api';
 
 
 export default async function Page() {
     const boletines = await getBoletines();
+    const dialogo = await getDialogo();
+    console.log('*************** dialogo ', dialogo)
     const mainBoletines = boletines && boletines.length >= 5 ? boletines : null;
+    const dialogoEntrada = dialogo;
 
 
   return (
@@ -21,7 +25,7 @@ export default async function Page() {
         <BoletinesHomeSection mainBoletines = {mainBoletines}></BoletinesHomeSection>
         <SalaPrensaSection></SalaPrensaSection>
         <SintesisSection></SintesisSection>
-        <DialogoSection></DialogoSection>
+        <DialogoSection dialogo = { dialogo }></DialogoSection>
         <TransmisionSection></TransmisionSection>
         <RedesSocialesSection></RedesSocialesSection>
         
