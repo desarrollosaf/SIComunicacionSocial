@@ -67,7 +67,7 @@ export default function Header() {
             <div className="menu-option">¿Quienes somos?</div>
           </Link>
 
-          <Dropdown id="comunidacion" label="Comunicación">
+          <Dropdown id="comunicacion" label="Comunicación">
             <Link href="/diputados" className="link-nav-menu w-dropdown-link">Sala de prensa</Link>
             <Link href="#" className="link-nav-menu w-dropdown-link">Banco de imagenes</Link>
             <Link href="/mesa-directiva" className="link-nav-menu w-dropdown-link">Comunicados</Link>

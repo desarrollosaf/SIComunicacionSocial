@@ -16,7 +16,7 @@ export default function SintesisInformativaPage() {
             <div className="sintesis-listado-titulo">
             <h1 className="h3">Síntesis Informativa</h1>
             <div className="div-busqueda_sintesis">
-                <form action="/search" className="search-2 w-form"><input className="search-input-2 w-input" maxlength="256" name="query" placeholder="DD / MM / AAAA" type="search" id="search"/><input type="submit" className="btn-buscar w-button" value="Buscar"/></form>
+                <form action="/search" className="search-2 w-form"><input className="search-input-2 w-input" maxLength={100} name="query" placeholder="DD / MM / AAAA" type="search" id="search"/><input type="submit" className="btn-buscar w-button" value="Buscar"/></form>
             </div>
             </div>
             <div className="resultados">
