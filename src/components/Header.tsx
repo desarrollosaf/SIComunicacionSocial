@@ -71,14 +71,14 @@ export default function Header() {
           <Dropdown id="comunicacion" label="Comunicación">
             <Link href="/sala-de-prensa" className="link-nav-menu w-dropdown-link">Sala de prensa</Link>
             <Link href="/galeria" className="link-nav-menu w-dropdown-link">Banco de imagenes</Link>
-            <Link href="/boletines" className="link-nav-menu w-dropdown-link">Comunicados</Link>
+            <Link href="/comunicados" className="link-nav-menu w-dropdown-link">Comunicados</Link>
             <Link href="/sintesis-informativa" className="link-nav-menu w-dropdown-link">Síntesis informativa</Link>
             <Link href="https://dialogo.congresoedomex.gob.mx" className="link-nav-menu w-dropdown-link">Diálogo</Link>
-            <Link href="/horas" className="link-nav-menu w-dropdown-link">Notas Hora x Hora</Link>
+            <Link href="/hora-x-hora" className="link-nav-menu w-dropdown-link">Notas Hora x Hora</Link>
           </Dropdown>
 
           <Dropdown id="contacto" label="Contacto">
-            <Link href="/diputados" className="link-nav-menu w-dropdown-link">Contacto</Link>
+            <Link href="/contacto" className="link-nav-menu w-dropdown-link">Contacto</Link>
             <Link href="https://administracionyfinanzasplem.gob.mx/directorio/directorio" className="link-nav-menu w-dropdown-link">Directorio telefónico</Link>
           </Dropdown>
         </div>
