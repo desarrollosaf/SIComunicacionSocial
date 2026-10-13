@@ -33,8 +33,9 @@ export default function ComunicadosPage() {
     const scrollToTop = () => {
         window.scrollTo({ top: 0, behavior: 'smooth' });
     };
-
+console.log('boletines front', boletines);
     return (
+
         <div>
             <ComunicadosSection boletines={boletines} loading={loading}></ComunicadosSection>
             {totalPaginas > 1 && (
