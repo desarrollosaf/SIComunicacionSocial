@@ -64,22 +64,22 @@ export default function Header() {
 
         {/* Menú desktop — se oculta en móvil con CSS */}
         <div className={`div-block-9 ${menuOpen ? 'menu-movil-abierto' : ''}`}>
-          <Link href="/identidad" className="link-block-3 w-inline-block" onClick={() => setOpen(null)}>
+          <Link href="/identidad-dependencias" className="link-block-3 w-inline-block" onClick={() => setOpen(null)}>
             <div className="menu-option">¿Quienes somos?</div>
           </Link>
 
           <Dropdown id="comunicacion" label="Comunicación">
-            <Link href="/diputados" className="link-nav-menu w-dropdown-link">Sala de prensa</Link>
-            <Link href="#" className="link-nav-menu w-dropdown-link">Banco de imagenes</Link>
-            <Link href="/mesa-directiva" className="link-nav-menu w-dropdown-link">Comunicados</Link>
-            <Link href="/junta-de-coordinacion-politica" className="link-nav-menu w-dropdown-link">Síntesis informativa</Link>
-            <Link href="/comisiones" className="link-nav-menu w-dropdown-link">Diálogo</Link>
-            <Link href="/comisiones" className="link-nav-menu w-dropdown-link">Notas Hora x Hora</Link>
+            <Link href="/sala-de-prensa" className="link-nav-menu w-dropdown-link">Sala de prensa</Link>
+            <Link href="/galeria" className="link-nav-menu w-dropdown-link">Banco de imagenes</Link>
+            <Link href="/boletines" className="link-nav-menu w-dropdown-link">Comunicados</Link>
+            <Link href="/sintesis-informativa" className="link-nav-menu w-dropdown-link">Síntesis informativa</Link>
+            <Link href="https://dialogo.congresoedomex.gob.mx" className="link-nav-menu w-dropdown-link">Diálogo</Link>
+            <Link href="/horas" className="link-nav-menu w-dropdown-link">Notas Hora x Hora</Link>
           </Dropdown>
 
           <Dropdown id="contacto" label="Contacto">
             <Link href="/diputados" className="link-nav-menu w-dropdown-link">Contacto</Link>
-            <Link href="#" className="link-nav-menu w-dropdown-link">Directorio telefónico</Link>
+            <Link href="https://administracionyfinanzasplem.gob.mx/directorio/directorio" className="link-nav-menu w-dropdown-link">Directorio telefónico</Link>
           </Dropdown>
         </div>
 
