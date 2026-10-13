@@ -64,7 +64,7 @@ export default function Header() {
 
         {/* Menú desktop — se oculta en móvil con CSS */}
         <div className={`div-block-9 ${menuOpen ? 'menu-movil-abierto' : ''}`}>
-          <Link href="/identidad-dependencias" className="link-block-3 w-inline-block" onClick={() => setOpen(null)}>
+          <Link href="/quienes-somos" className="link-block-3 w-inline-block" onClick={() => setOpen(null)}>
             <div className="menu-option">¿Quienes somos?</div>
           </Link>
 
