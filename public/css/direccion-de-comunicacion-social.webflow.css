@@ -1035,7 +1035,7 @@
 }
 
 .container-2 {
-  background-image: url('../images/Collage.png');
+  /* background-image: url('../images/Collage.png'); */
   background-position: 50% 0;
   background-size: cover;
   border-radius: 20px;
