@@ -22,8 +22,8 @@ export default function ComunicadosPage() {
             setLoading(true);
             const data = await getBoletinesAll(paginaActual);
             setTimeout(() => {
-                setBoletines(data.rows);
-                setTotal(data.count);
+                setBoletines(Array.isArray(data?.rows) ? data.rows : []);
+                setTotal(Number(data?.count) || 0);
                 setLoading(false);
             }, 400);
         };
@@ -33,7 +33,6 @@ export default function ComunicadosPage() {
     const scrollToTop = () => {
         window.scrollTo({ top: 0, behavior: 'smooth' });
     };
-console.log('boletines front', boletines[0]);
     return (
 
         <div>

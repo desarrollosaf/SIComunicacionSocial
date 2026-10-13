@@ -1,3 +1,5 @@
+import { BASE_PATH } from "@/lib/basePath";
+
 export default async function QuienesPage() {
   return (
 <section>
@@ -57,7 +59,7 @@ export default async function QuienesPage() {
     <div className="cta-ultimasecci-n">
       <h1 className="h1-centrado">¿Necesitas información o atención a medios?</h1>
       <div className="cta-btn-secction">
-        <a href="/sala-de-prensa" className="btn-var-cta w-button">Sala de Prensa</a>
+        <a href={`${BASE_PATH}/sala-de-prensa`} className="btn-var-cta w-button">Sala de Prensa</a>
         <a href="https://administracionyfinanzasplem.gob.mx/directorio/directorio" className="btn-var-cta w-button">Directorio</a>
       </div>
     </div>

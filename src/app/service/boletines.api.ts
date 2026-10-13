@@ -39,10 +39,6 @@ export async function getBoletines() {
     const res = await fetch(`${getApiUrl()}/api/boletines`, { next: { revalidate: 10 } });
     const text = await res.text();
 
-    console.log('Status HTTP:', res.status);
-    console.log('Respuesta backend:', text);
-
-
     if (!res.ok) {
       console.error('Error backend:', text);
       return [];

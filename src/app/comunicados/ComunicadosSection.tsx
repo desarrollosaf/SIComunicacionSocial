@@ -1,4 +1,5 @@
 'use client';
+import { BASE_PATH } from "@/lib/basePath";
 
 type Props = {
     boletines: any,
@@ -95,7 +96,7 @@ const skeletonStyles = `
                                 <div className="fecha-boletin">{ principal?.fecha } </div>
                                 <h3 className="titulo-boletin"> { principal?.titulo }</h3>
                                 { principal?.descripcion?.[0]?.bullets }
-                                <a href={`/boletines/${principal?.id ?? ''}`}  className="btn-boletin w-button">Abrir Comunicado</a>
+                                <a href={`${BASE_PATH}/boletines/${principal?.id ?? ''}`}  className="btn-boletin w-button">Abrir Comunicado</a>
                             </>
                         )}
                     </div>
@@ -130,7 +131,7 @@ const skeletonStyles = `
                                         <div className="fecha-boletin"> { item?.fecha }</div>
                                         <h3 className="titulo-boletin"> { item?.titulo } </h3>
                                         <p> { item?.descripcion?.[0]?.bullets }</p>
-                                        <a href={`/boletines/${item?.id ?? ''}`} className="btn-boletin w-button">Abrir Comunicado</a>
+                                        <a href={`${BASE_PATH}/boletines/${item?.id ?? ''}`} className="btn-boletin w-button">Abrir Comunicado</a>
                                     </>
                                 )}
                             </div>
@@ -161,7 +162,7 @@ const skeletonStyles = `
                                     <div className="fecha-boletin">{ item?.fecha }</div>
                                     <h3 className="titulo-boletin">{ item?.titulo }</h3>
                                     <p> {item?.descripcion?.[0]?.bullets} </p>
-                                    <a href={`/boletines/${item?.id ?? ''}`} className="btn-boletin w-button">Abrir Comunicado</a>
+                                    <a href={`${BASE_PATH}/boletines/${item?.id ?? ''}`} className="btn-boletin w-button">Abrir Comunicado</a>
                                 </>
                             )}
                         </div>
@@ -197,7 +198,7 @@ const skeletonStyles = `
                                         <div className="fecha-boletin"> { item?.fecha }</div>
                                         <h3 className="titulo-boletin"> { item?.titulo } </h3>
                                         <p> { item?.descripcion?.[0]?.bullets }</p>
-                                        <a href={`/boletines/${item?.id ?? ''}`} className="btn-boletin w-button">Abrir Comunicado</a>
+                                        <a href={`${BASE_PATH}/boletines/${item?.id ?? ''}`} className="btn-boletin w-button">Abrir Comunicado</a>
                                     </>
                                 )}
                             </div>
