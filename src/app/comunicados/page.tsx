@@ -33,7 +33,7 @@ export default function ComunicadosPage() {
     const scrollToTop = () => {
         window.scrollTo({ top: 0, behavior: 'smooth' });
     };
-console.log('boletines front', boletines);
+console.log('boletines front', boletines[0]);
     return (
 
         <div>
