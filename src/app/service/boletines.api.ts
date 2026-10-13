@@ -37,12 +37,31 @@ export async function getBoletinesRandom() {
 export async function getBoletines() {
   try {
     const res = await fetch(`${getApiUrl()}/api/boletines`, { next: { revalidate: 10 } });
+    const text = await res.text();
+
+    console.log('Status HTTP:', res.status);
+    console.log('Respuesta backend:', text);
+
+
     if (!res.ok) {
       const text = await res.text();
       console.error('Error backend:', text);
       return [];
     }
-  return await res.json();
+    if (!text.trim()) {
+      console.error('El backend devolvió una respuesta vacía');
+      return [];
+    }
+     try {
+      // return JSON.parse(text);
+        return await res.json();
+    } catch {
+      console.error('El backend no devolvió un JSON válido:', text);
+      return [];
+    }
+    
+
+  // return await res.json();
   } catch (error) {
     console.error("Failed to fetch boletines:", error);
     return [];
