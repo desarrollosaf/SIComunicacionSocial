@@ -1,6 +1,8 @@
+import { getApiUrl } from './apiUrl';
+
 export async function getDialogo() {
   try {
-    const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/dialogos`, {
+    const res = await fetch(`${getApiUrl()}/api/dialogos`, {
     cache: "no-store",
   });
      if (!res.ok) {

@@ -1,5 +1,7 @@
+import { getApiUrl } from './apiUrl';
+
 export async function getTrabajoLegislativo() {
-  const data = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/trabajo-legislativo`, {
+  const data = await fetch(`${getApiUrl()}/api/trabajo-legislativo`, {
     cache: "no-store",
   });
   return data.json();

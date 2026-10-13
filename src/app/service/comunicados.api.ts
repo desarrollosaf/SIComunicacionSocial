@@ -1,8 +1,10 @@
+import { getApiUrl } from './apiUrl';
+
 
 export async function getBoletinesAll(pagina: number) {
   try {
 
-    const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/boletines/boletinesAll/${pagina}`, { next: { revalidate: 10 } });
+    const res = await fetch(`${getApiUrl()}/api/boletines/boletinesAll/${pagina}`, { next: { revalidate: 10 } });
     if (!res.ok) {
       const text = await res.text();
       console.error('Error backend:', text);

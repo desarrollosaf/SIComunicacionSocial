@@ -1,6 +1,8 @@
+import { getApiUrl } from './apiUrl';
+
 export async function getBoletin(id: string) {
   try {
-    const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/boletines/${id}`, {
+    const res = await fetch(`${getApiUrl()}/api/boletines/${id}`, {
     cache: "no-store",
   });
      if (!res.ok) {
@@ -18,7 +20,7 @@ export async function getBoletin(id: string) {
 
 export async function getBoletinesRandom() {
   try {
-    const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/boletines/random`);
+    const res = await fetch(`${getApiUrl()}/api/boletines/random`);
      if (!res.ok) {
       const text = await res.text();
       console.error('Error backend:', text);
@@ -34,7 +36,7 @@ export async function getBoletinesRandom() {
 
 export async function getBoletines() {
   try {
-    const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/boletines`, { next: { revalidate: 10 } });
+    const res = await fetch(`${getApiUrl()}/api/boletines`, { next: { revalidate: 10 } });
     if (!res.ok) {
       const text = await res.text();
       console.error('Error backend:', text);

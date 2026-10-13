@@ -1,5 +1,7 @@
+import { getApiUrl } from './apiUrl';
+
 export async function getComisiones() {
-  const data = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/comisiones`, {
+  const data = await fetch(`${getApiUrl()}/api/comisiones`, {
     cache: "no-store",
   });
   return data.json();
@@ -7,12 +9,7 @@ export async function getComisiones() {
 
 export async function getComisionById(id: string) {
   try {
-    const baseUrl =
-      typeof window === "undefined"
-        ? process.env.API_URL || process.env.NEXT_PUBLIC_API_URL
-        : process.env.NEXT_PUBLIC_API_URL;
-
-    const res = await fetch(`${baseUrl}/api/comisiones/${id}`, {
+    const res = await fetch(`${getApiUrl()}/api/comisiones/${id}`, {
       cache: "no-store",
     });
 
