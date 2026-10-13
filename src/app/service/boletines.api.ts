@@ -44,7 +44,6 @@ export async function getBoletines() {
 
 
     if (!res.ok) {
-      const text = await res.text();
       console.error('Error backend:', text);
       return [];
     }
@@ -52,9 +51,9 @@ export async function getBoletines() {
       console.error('El backend devolvió una respuesta vacía');
       return [];
     }
-     try {
-      // return JSON.parse(text);
-        return await res.json();
+    try {
+      // El body ya se leyó con res.text(); no se puede volver a leer con res.json()
+      return JSON.parse(text);
     } catch {
       console.error('El backend no devolvió un JSON válido:', text);
       return [];
