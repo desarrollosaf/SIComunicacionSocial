@@ -37,7 +37,7 @@ const formatearFecha = (fecha: string) => {
             <div className="div-preview-dialogo">
                 <div className="w-layout-blockcontainer container w-container">
                 <h1 className="heading-3">Lo más reciente </h1>
-                <div className="w-layout-blockcontainer container-2 w-container" style={{backgroundImage: `url('${dialogo?.imagen}')`}}></div>
+                <div className="w-layout-blockcontainer container-2 w-container" style={{backgroundImage: `url(DGCS/'${dialogo?.imagen}')`}}></div>
                 <p className="paragraph-2">{ dialogo?.titulo}</p>
                 <p className="paragraph-3"> {dialogo?.fecha && formatearFecha(dialogo.fecha)} </p>
                 <p> {dialogo?.texto}</p>
