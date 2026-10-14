@@ -31,7 +31,9 @@ const formatearFecha = (fecha: string) => {
 
     return (
         <div className="div-dialogo">
-            <div className="div-titulo-seccion-dialogo"><img loading="lazy" src='images/logo-dialogo-1.svg' alt=""/></div>
+            <div className="div-titulo-seccion-dialogo">
+                <img loading="lazy" src='images/logo-dialogo-1.svg' alt=""/>
+            </div>
             <div className="div-preview-dialogo">
                 <div className="w-layout-blockcontainer container w-container">
                 <h1 className="heading-3">Lo más reciente </h1>
