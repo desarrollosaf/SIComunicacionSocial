@@ -116,15 +116,10 @@ export default function Header() {
             </nav>
 
             {/* Botón del menú móvil */}
-            <button
-              type="button"
-              className="menu-button w-nav-button"
-              aria-label="Abrir o cerrar menú"
-              aria-expanded={menuAbierto}
-              onClick={() => setMenuAbierto(!menuAbierto)}
-            >
-              <span className="w-icon-nav-menu" />
-            </button>
+          
+            <div className="menu-button w-nav-button" aria-label="Abrir o cerrar menú" aria-expanded={menuAbierto}onClick={() => setMenuAbierto(!menuAbierto)}>
+              <div className="w-icon-nav-menu"></div>
+            </div>
           </div>
         </div>
       </div>
