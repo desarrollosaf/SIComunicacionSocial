@@ -7,7 +7,6 @@ type dialogo = {
   imagen?: string;
 };
 
-
 type Props = {
   dialogo: dialogo | null;
 };
