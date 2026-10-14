@@ -13,9 +13,7 @@ export default async function Page() {
     const boletines = await getBoletines();
     const dialogo = await getDialogo();
     const mainBoletines = boletines && boletines.length >= 5 ? boletines : null;
-
-
-
+    
   return (
     <section className="main">
         <div className="hero">
