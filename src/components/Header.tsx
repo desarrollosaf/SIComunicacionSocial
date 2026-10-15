@@ -1,21 +1,27 @@
 "use client";
 
+import { BASE_PATH } from "@/lib/basePath";
 import Link from "next/link";
 import { useState } from "react";
 
 export default function Header() {
-  const [menuAbierto, setMenuAbierto] = useState(false);
-  const [dropdownAbierto, setDropdownAbierto] = useState<string | null>(null);
-
-  const toggleDropdown = (menu: string) => {
-    setDropdownAbierto(dropdownAbierto === menu ? null : menu);
-  };
+const [menuAbierto, setMenuAbierto] = useState(false);
+const [comunicacionAbierto, setComunicacionAbierto] = useState(false);
+const [contactoAbierto, setContactoAbierto] = useState(false);
 
   return (
     <header className="header">
       <div className="nav-bar-structure">
-        <Link href="/" aria-current="page" className="w-nav-brand w--current">
-          <img src="/images/DGCS.png" alt="Dirección General de Comunicación Social" className="img-h-50"  loading="lazy"/>
+        <Link href="/" className="w-nav-brand">
+          <img src={`${BASE_PATH}/images/DGCS.png`} loading="lazy" sizes="100vw" 
+          srcSet={`${BASE_PATH}/images/DGCS-p-500.png 500w, 
+            ${BASE_PATH}/images/DGCS-p-800.png 800w, 
+            ${BASE_PATH}/images/DGCS-p-1080.png 1080w, 
+            ${BASE_PATH}/images/DGCS-p-1600.png 1600w, 
+            ${BASE_PATH}/images/DGCS-p-2000.png 2000w, 
+            ${BASE_PATH}/images/DGCS-p-2600.png 2600w, 
+            ${BASE_PATH}/images/DGCS-p-3200.png 3200w, 
+            ${BASE_PATH}/images/DGCS.png 6697w`} alt="" className="img-h-50"/>
         </Link>
 
         <div
@@ -28,101 +34,136 @@ export default function Header() {
           className="navbar w-nav"
         >
           <div className="container-3 w-container">
-            <nav
-              role="navigation"
-              className={`nav-menu w-nav-menu ${menuAbierto ? "menu-abierto" : ""}`}
-            >
+            <nav role="navigation" className={`nav-menu w-nav-menu ${menuAbierto ? "menu-abierto" : ""}`}>
               <div className="div-block-9">
                 <Link href="/quienes-somos" className="link">
                   ¿Quiénes somos?
                 </Link>
 
-                {/* Menú Comunicación */}
-                <div data-hover="true" data-delay="100" className="w-dropdown">
-                  <div className="w-dropdown-toggle" aria-expanded={dropdownAbierto === "comunicacion"} onClick={() => toggleDropdown("comunicacion")}>
-                    <span className="w-icon-dropdown-toggle" />
-                    <span className="menu-option">Comunicación</span>
-                  </div>
-
-                  <nav
-                    className={`dropdown-list w-dropdown-list ${
-                      dropdownAbierto === "comunicacion" ? "dropdown-abierto" : ""
-                    }`}
-                  >
-                    <Link href="/sala-de-prensa" className="link-nav-menu w-dropdown-link">
-                      Sala de Prensa
-                    </Link>
-
-                    <Link href="/galeria" className="link-nav-menu w-dropdown-link">
-                      Banco de imágenes
-                    </Link>
-
-                    <Link href="/comunicados" className="link-nav-menu w-dropdown-link">
-                      Comunicados
-                    </Link>
-
-                    <Link
-                      href="/sintesis-informativa"
-                      className="link-nav-menu w-dropdown-link"
-                    >
-                      Síntesis informativa
-                    </Link>
-
-                    <a
-                      href="https://dialogo.congresoedomex.gob.mx/"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="link-nav-menu w-dropdown-link"
-                    >
-                      Diálogo
-                    </a>
-
-                    <Link
-                      href="/hora-x-hora"
-                      className="link-nav-menu w-dropdown-link"
-                    >
-                      Notas Hora x Hora
-                    </Link>
-                  </nav>
-                </div>
-
-                {/* Menú Contacto */}
-                <div data-hover="true" data-delay="100" className="w-dropdown">
-                  <div className="w-dropdown-toggle" aria-expanded={dropdownAbierto === "contacto"} onClick={() => toggleDropdown("contacto")}>
-                    <span className="w-icon-dropdown-toggle" />
-                    <span className="menu-option">Contacto</span>
-                  </div>
-
-                  <nav
-                    className={`dropdown-list w-dropdown-list ${
-                      dropdownAbierto === "contacto" ? "dropdown-abierto" : ""
-                    }`}
-                  >
-                    <Link href="/contacto" className="link-nav-menu w-dropdown-link">
-                      Contacto
-                    </Link>
-
-                    <a
-                      href="https://administracionyfinanzasplem.gob.mx/directorio/directorio"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="link-nav-menu w-dropdown-link"
-                    >
-                      Directorio Telefónico
-                    </a>
-                  </nav>
-                </div>
+              <div
+                data-hover="true"
+                data-delay="100"
+                className={`w-dropdown ${comunicacionAbierto ? "w--open" : ""}`}
+              >
+              <div
+                className="w-dropdown-toggle"
+                onClick={() =>
+                  setComunicacionAbierto(!comunicacionAbierto)
+                }
+                aria-expanded={comunicacionAbierto}
+              >
+                <div className="w-icon-dropdown-toggle"></div>
+                <div className="menu-option">Comunicación</div>
               </div>
-            </nav>
 
-            {/* Botón del menú móvil */}
-          
-            <div className="menu-button w-nav-button" aria-label="Abrir o cerrar menú" aria-expanded={menuAbierto}onClick={() => setMenuAbierto(!menuAbierto)}>
-              <div className="w-icon-nav-menu"></div>
+              <nav
+                className={`dropdown-list w-dropdown-list ${
+                  comunicacionAbierto ? "w--open" : ""
+                }`}
+              >
+                <a
+                  href="/sala-de-prensa"
+                  className="link-nav-menu w-dropdown-link"
+                >
+                  Sala de Prensa
+                </a>
+
+                <a
+                  href="/galeria"
+                  className="link-nav-menu w-dropdown-link"
+                >
+                  Banco de imagenes
+                </a>
+
+                <a
+                  href="/comunicados"
+                  aria-current="page"
+                  className="link-nav-menu w-dropdown-link w--current"
+                >
+                  Comunicados
+                </a>
+
+                <a
+                  href="/sintesis-informativa"
+                  className="link-nav-menu w-dropdown-link"
+                >
+                  Síntesis informativa
+                </a>
+
+                <a
+                  href="https://dialogo.congresoedomex.gob.mx/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="link-nav-menu w-dropdown-link"
+                >
+                  Diálogo
+                </a>
+
+                <a
+                  href="/hora-x-hora"
+                  className="link-nav-menu w-dropdown-link"
+                >
+                  Notas Hora x Hora
+                </a>
+              </nav>
+            </div>
+
+            <div
+              data-hover="true"
+              data-delay="100"
+              className={`w-dropdown ${contactoAbierto ? "w--open" : ""}`}
+            >
+              <div
+                className="w-dropdown-toggle"
+                onClick={() => setContactoAbierto(!contactoAbierto)}
+                aria-expanded={contactoAbierto}
+              >
+                <div className="w-icon-dropdown-toggle"></div>
+                <div className="menu-option">Contacto</div>
+              </div>
+
+              <nav
+                className={`dropdown-list w-dropdown-list ${
+                  contactoAbierto ? "w--open" : ""
+                }`}
+              >
+                <a
+                  href="/contacto"
+                  className="link-nav-menu w-dropdown-link"
+                >
+                  Contacto
+                </a>
+
+                <a
+                  href="https://administracionyfinanzasplem.gob.mx/directorio/directorio"
+                  className="link-nav-menu w-dropdown-link"
+                >
+                  Directorio Telefónico
+                </a>
+              </nav>
             </div>
           </div>
+        </nav>
+
+        <div
+          className="menu-button w-nav-button"
+          role="button"
+          tabIndex={0}
+          aria-label="Abrir o cerrar menú"
+          aria-expanded={menuAbierto}
+          onClick={() => setMenuAbierto(!menuAbierto)}
+          onKeyDown={(e) => {
+            if (e.key === "Enter" || e.key === " ") {
+              e.preventDefault();
+              setMenuAbierto(!menuAbierto);
+            }
+          }}
+        >
+          <div className="w-icon-nav-menu"></div>
         </div>
       </div>
-    </header>
+    </div>
+  </div>
+</header>
   );
 }
