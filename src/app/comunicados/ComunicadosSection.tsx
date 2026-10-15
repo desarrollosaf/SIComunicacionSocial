@@ -48,24 +48,18 @@ const skeletonStyles = `
     };
 
     return (
-    <>
-        <section className="section-11"  style={{
-        opacity: loading ? 0.5 : 1,
-        transition: 'opacity 0.3s ease'
-        }}>
+        <section className="section-12">
             <div className="hero-boletines">
-                <h1 className="titulo-seccion">Boletines </h1>
+                <h1 className="titulo-seccion-2">Boletines </h1>
                 <div className="div-block-2">
-                    <form action="/search" className="search w-form"><label htmlFor="search" className="field-label">Encuentra de manera fácil y rápida la información que necesitas.</label>
-                    <div className="div-block-3"><input className="search-input w-input" maxLength={256}  name="query" placeholder="Buscar" type="search" id="search"/><input type="submit" className="search-button w-button" value="Buscar"/></div>
+                    <form action="/search" className="search w-form"><label htmlFor="search" className="h3-centrado">Encuentra de manera fácil y rápida la información que necesitas.</label>
+                        <div className="div-block-3"><input className="search-input w-input" maxLength={256} name="query" placeholder="Buscar" type="search" id="search" required/><input type="submit" className="search-button w-button" value="Buscar"/></div>
                     </form>
                 </div>
             </div>
-        </section>
 
         
         <style>{skeletonStyles}</style>
-        <section className="section-11" style={{ padding: '60px 20px', backgroundColor: '#f9f9f9' }}>
             <div className="ultimo-boletin">
                 <div className="comunicado-main">
                     <div className="img-comunicado">
@@ -96,7 +90,7 @@ const skeletonStyles = `
                                 <div className="fecha-boletin">{ principal?.fecha } </div>
                                 <h3 className="titulo-boletin"> { principal?.titulo }</h3>
                                 { principal?.descripcion?.[0]?.bullets }
-                                <a href={`${BASE_PATH}/boletines/${principal?.id ?? ''}`}  className="btn-boletin w-button">Abrir Comunicado</a>
+                                <a href={`https://congresoedomex.gob.mx/boletines/${principal?.id}`} className="btn-boletin w-button">Abrir Comunicado</a>
                             </>
                         )}
                     </div>
@@ -131,7 +125,7 @@ const skeletonStyles = `
                                         <div className="fecha-boletin"> { item?.fecha }</div>
                                         <h3 className="titulo-boletin"> { item?.titulo } </h3>
                                         <p> { item?.descripcion?.[0]?.bullets }</p>
-                                        <a href={`${BASE_PATH}/boletines/${item?.id ?? ''}`} className="btn-boletin w-button">Abrir Comunicado</a>
+                                        <a href={`https://congresoedomex.gob.mx/boletines/${item?.id}`} className="btn-boletin w-button">Abrir Comunicado</a>
                                     </>
                                 )}
                             </div>
@@ -162,7 +156,7 @@ const skeletonStyles = `
                                     <div className="fecha-boletin">{ item?.fecha }</div>
                                     <h3 className="titulo-boletin">{ item?.titulo }</h3>
                                     <p> {item?.descripcion?.[0]?.bullets} </p>
-                                    <a href={`${BASE_PATH}/boletines/${item?.id ?? ''}`} className="btn-boletin w-button">Abrir Comunicado</a>
+                                    <a href={`https://congresoedomex.gob.mx/boletines/${item?.id}`} className="btn-boletin w-button">Abrir Comunicado</a>
                                 </>
                             )}
                         </div>
@@ -198,7 +192,7 @@ const skeletonStyles = `
                                         <div className="fecha-boletin"> { item?.fecha }</div>
                                         <h3 className="titulo-boletin"> { item?.titulo } </h3>
                                         <p> { item?.descripcion?.[0]?.bullets }</p>
-                                        <a href={`${BASE_PATH}/boletines/${item?.id ?? ''}`} className="btn-boletin w-button">Abrir Comunicado</a>
+                                        <a href={`https://congresoedomex.gob.mx/boletines/${item?.id}`} className="btn-boletin w-button">Abrir Comunicado</a>
                                     </>
                                 )}
                             </div>
@@ -206,6 +200,5 @@ const skeletonStyles = `
                     ))}
             </div>
         </section>
-    </>
     );
 }

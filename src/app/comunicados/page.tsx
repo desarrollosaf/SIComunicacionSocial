@@ -37,25 +37,27 @@ export default function ComunicadosPage() {
 
         <div>
             <ComunicadosSection boletines={boletines} loading={loading}></ComunicadosSection>
-            {totalPaginas > 1 && (
-                <div className="ini-paginacion">
-                    <button
-                        className="ini-pag-btn"
-                        onClick={() => { setPaginaActual(p => Math.max(1, p - 1)); scrollToTop(); }}
-                        disabled={paginaActual === 1}
-                    >
-                        ← Anterior
-                    </button>
-                    <span className="ini-pag-info">Página {paginaActual} de {totalPaginas}</span>
-                    <button
-                        className="ini-pag-btn"
-                        onClick={() => { setPaginaActual(p => Math.min(totalPaginas, p + 1)); scrollToTop(); }}
-                        disabled={paginaActual === totalPaginas}
-                    >
-                        Siguiente →
-                    </button>
-                </div>
-            )}
+            <div className="div-block-74">
+                {totalPaginas > 1 && (
+                    <div className="ini-paginacion">
+                        <button
+                            className="ini-pag-btn"
+                            onClick={() => { setPaginaActual(p => Math.max(1, p - 1)); scrollToTop(); }}
+                            disabled={paginaActual === 1}
+                        >
+                            ← Anterior
+                        </button>
+                        <span className="ini-pag-info">Página {paginaActual} de {totalPaginas}</span>
+                        <button
+                            className="ini-pag-btn"
+                            onClick={() => { setPaginaActual(p => Math.min(totalPaginas, p + 1)); scrollToTop(); }}
+                            disabled={paginaActual === totalPaginas}
+                        >
+                            Siguiente →
+                        </button>
+                    </div>
+                )}
+            </div>
         </div>
     );
 }

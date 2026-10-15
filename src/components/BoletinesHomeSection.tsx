@@ -83,7 +83,7 @@ export default function BoletinesHomeSection({ mainBoletines }: Props) {
                   <p>{b0?.descripcion?.[0]?.bullets || ''}</p>
                 </div>
 
-                <Link href={`/boletines/${b0?.id ?? ''}`} className="btn-var-2 w-button">
+                <Link href={`https://congresoedomex.gob.mx/boletines/${b0?.id}`} className="btn-var-2 w-button">
                   Leer el boletín
                 </Link>
               </div>
@@ -107,7 +107,7 @@ export default function BoletinesHomeSection({ mainBoletines }: Props) {
                     />
                     <h5>{b1?.titulo || 'Sin título'}</h5>
                     <div className="fecha-boletin">{formatearFecha(b1?.fecha)}</div>
-                    <Link href={`/boletines/${b1?.id ?? ''}`} className="btn-var-2 w-button">
+                    <Link href={`https://congresoedomex.gob.mx/boletines/${b1?.id}`} className="btn-var-2 w-button">
                       Leer el boletín
                     </Link>
                   </div>
@@ -128,7 +128,7 @@ export default function BoletinesHomeSection({ mainBoletines }: Props) {
                     />
                     <h5>{b2?.titulo || 'Sin título'}</h5>
                     <div className="fecha-boletin">{formatearFecha(b2?.fecha)}</div>
-                    <Link href={`/boletines/${b2?.id ?? ''}`} className="btn-var-2 w-button">
+                    <Link href={`https://congresoedomex.gob.mx/boletines/${b2?.id}`} className="btn-var-2 w-button">
                       Leer el boletín
                     </Link>
                   </div>
@@ -149,7 +149,7 @@ export default function BoletinesHomeSection({ mainBoletines }: Props) {
                     />
                     <h5>{b3?.titulo || 'Sin título'}</h5>
                     <div className="fecha-boletin">{formatearFecha(b3?.fecha)}</div>
-                    <Link href={`/boletines/${b3?.id ?? ''}`} className="btn-var-2 w-button">
+                    <Link href={`https://congresoedomex.gob.mx/boletines/${b3?.id}`} className="btn-var-2 w-button">
                       Leer el boletín
                     </Link>
                   </div>
@@ -170,7 +170,7 @@ export default function BoletinesHomeSection({ mainBoletines }: Props) {
                     />
                     <h5>{b4?.titulo || 'Sin título'}</h5>
                     <div className="fecha-boletin">{formatearFecha(b4?.fecha)}</div>
-                    <Link href={`/boletines/${b4?.id ?? ''}`} className="btn-var-2 w-button">
+                    <Link href={`https://congresoedomex.gob.mx/boletines/${b4?.id}`} className="btn-var-2 w-button">
                       Leer el boletín
                     </Link>
                   </div>
