@@ -28,7 +28,7 @@ const [contactoAbierto, setContactoAbierto] = useState(false);
           <div className="container-3 w-container">
             <nav role="navigation" className={`nav-menu w-nav-menu ${menuAbierto ? "menu-abierto" : ""}`}>
               <div className="div-block-9">
-                <Link href={`${BASE_PATH}/quienes-somos`} className="link">
+                <Link href="/quienes-somos" className="link">
                   ¿Quiénes somos?
                 </Link>
 
