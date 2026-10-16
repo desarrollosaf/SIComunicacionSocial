@@ -13,3 +13,79 @@
   height: 100%;
   border: 0;
 }
+
+@media screen and (max-width: 991px) {
+  /* Mostrar hamburger */
+  .menu-button.w-nav-button {
+    display: flex;
+    align-items: left;
+    justify-content: center;
+    padding: 12px;
+  }
+
+  /* Ocultar nav por defecto */
+  .nav-menu.w-nav-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    width: 100%;
+    background: #fff;
+    z-index: 500;
+    box-shadow: 0 6px 16px rgba(0,0,0,0.1);
+    padding: 10px 0 20px;
+  }
+
+  /* Mostrar cuando está abierto */
+  .nav-menu.w-nav-menu.w--nav-menu-open {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  /* Links simples en móvil */
+  .nav-menu .link-block-3.w-inline-block {
+    padding: 10px 24px;
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  /* Dropdowns en móvil: ancho completo, sin hover */
+  .nav-menu .w-dropdown {
+    width: 100%;
+    position: relative;
+  }
+
+  .nav-menu .w-dropdown-toggle {
+    padding: 10px 24px;
+    width: 100%;
+    box-sizing: border-box;
+    justify-content: center;
+    display: flex;
+    align-items: left;
+    gap: 6px;
+  }
+
+  .nav-menu .dropdown-list.w--open {
+    position: relative !important;
+    top: auto !important;
+    width: 100%;
+    border-radius: 0;
+    background-color: #f5f5f5;
+    box-shadow: none;
+    padding: 4px 0;
+  }
+
+  .nav-menu .w-dropdown-link {
+    padding: 8px 40px;
+    display: block;
+    text-align: left;
+  }
+
+  /* Desactivar hover en móvil — solo click */
+  .nav-menu .w-dropdown:hover > .w-dropdown-list:not(.w--open) {
+    display: none;
+  }
+}

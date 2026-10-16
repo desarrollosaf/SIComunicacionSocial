@@ -6,7 +6,7 @@ import Footer from "@/components/Footer";
 import './globals.css';
 
 export const metadata: Metadata = {
-  title: "Comunicación Social",
+  title: "Dirección General de Comunicación Social",
   description: "Diracción General de Comunicación Social",
 };
 
@@ -30,15 +30,17 @@ export default function RootLayout({
           }}
         />
       </head>
-      <body className="body antialiased min-h-screen flex flex-col">
+      <body className="body">
         <Header />
         <main className="flex-1">
           {children}
         </main>
         <Footer />
         {/* <FloatingChat /> */}
-        <Script src="https://d3e54v103j8qbb.cloudfront.net/js/jquery-3.5.1.min.dc5e7f18c8.js?site=68dd617a668359798a8993c6" strategy="beforeInteractive" crossOrigin="anonymous" />
-        <Script src={`${BASE_PATH}/js/webflow.js`} strategy="lazyOnload" />
+        <Script src="https://d3e54v103j8qbb.cloudfront.net/js/jquery-3.5.1.min.dc5e7f18c8.js?site=6a0f26f32dc742d2462b8347" type="text/javascript" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossOrigin="anonymous"/>
+        <Script src={`${BASE_PATH}/js/webflow.js`} type="text/javascript"/>
+        <Script src="https://cdn.prod.website-files.com/gsap/3.15.0/gsap.min.js" type="text/javascript"/>
+        <Script src="https://cdn.prod.website-files.com/gsap/3.15.0/ScrollTrigger.min.js" type="text/javascript"/>
       </body>
     </html>
   );
