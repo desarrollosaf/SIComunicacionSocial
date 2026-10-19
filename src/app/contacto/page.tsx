@@ -1,7 +1,7 @@
 export default async function ContactoPage() {
   return (
     <section>
-        <div data-w-id="2b275948-6c35-599d-589a-5f53c43c876e" className="div-block-89">
+        <div className="div-block-89">
         <div className="div-titulo-hero-contacto">
             <h1 className="h1-centrado">Directorio interno </h1>
         </div>

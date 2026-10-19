@@ -18,113 +18,58 @@
   position: relative;
 }
 
-/* Ocultar hamburger en desktop */
-.menu-button.w-nav-button {
-  display: none;
+/*
+ * Menú: los estilos vienen del CSS de Webflow. Header.tsx pone las mismas
+ * clases que ponía webflow.js (w--open, data-nav-menu-open...), así que aquí
+ * solo va la animación de apertura que antes hacía webflow.js (400ms ease).
+ */
+@keyframes nav-menu-abrir {
+  from {
+    clip-path: inset(0 0 100% 0);
+  }
+  to {
+    clip-path: inset(0 0 0 0);
+  }
 }
 
+.w-nav-menu[data-nav-menu-open] {
+  animation: nav-menu-abrir 400ms ease;
+}
 
-@media screen and (max-width: 1200px) {
+/* Lightbox de Sala de Prensa (antes lo hacía webflow.js) */
+.lightbox-miniatura {
+  padding: 0;
+  border: 0;
+  background: none;
+  cursor: pointer;
+}
 
-  /* Mostrar botón hamburguesa */
-  .menu-button.w-nav-button {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 12px;
-    cursor: pointer;
-    flex-shrink: 0;
-  }
+.lightbox-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 2000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 16px;
+  background-color: rgba(0, 0, 0, 0.9);
+}
 
-  /* Menú móvil */
-  .nav-menu.w-nav-menu {
-    display: none;
-    position: absolute;
-    top: 100%;
-    left: 0;
-    right: 0;
-    width: 100%;
-    max-width: 100%;
-    max-height: calc(100dvh - 80px);
-    overflow-y: auto;
-    overflow-x: hidden;
-    -webkit-overflow-scrolling: touch;
-    box-sizing: border-box;
-    background: #fff;
-    z-index: 500;
-    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
-    padding: 10px 0 20px;
-  }
+.lightbox-imagen {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
 
-  /* Mostrar menú abierto */
-  .nav-menu.w-nav-menu.w--nav-menu-open {
-    display: flex;
-    flex-direction: column;
-    align-items: stretch;
-  }
-
-  /* Enlaces */
-  .nav-menu .link-block-3.w-inline-block {
-    display: block;
-    width: 100%;
-    max-width: 100%;
-    box-sizing: border-box;
-    padding: 12px 20px;
-    overflow-wrap: anywhere;
-  }
-
-  /* Contenedores dropdown */
-  .nav-menu .w-dropdown {
-    width: 100%;
-    max-width: 100%;
-    position: relative;
-    box-sizing: border-box;
-  }
-
-  /* Botones de dropdown */
-  .nav-menu .w-dropdown-toggle {
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    gap: 6px;
-    width: 100%;
-    max-width: 100%;
-    min-height: 44px;
-    padding: 12px 20px;
-    box-sizing: border-box;
-    white-space: normal;
-    text-align: left;
-  }
-
-  /* Listas desplegables */
-  .nav-menu .dropdown-list.w--open {
-    position: relative !important;
-    top: auto !important;
-    left: auto !important;
-    right: auto !important;
-    width: 100%;
-    max-width: 100%;
-    box-sizing: border-box;
-    border-radius: 0;
-    background-color: #f5f5f5;
-    box-shadow: none;
-    padding: 4px 0;
-  }
-
-  /* Opciones dentro del dropdown */
-  .nav-menu .w-dropdown-link {
-    display: block;
-    width: 100%;
-    box-sizing: border-box;
-    padding: 10px 32px;
-    white-space: normal;
-    overflow-wrap: anywhere;
-    text-align: left;
-  }
-
-  /* Evitar apertura por hover */
-  .nav-menu .w-dropdown:hover >
-  .w-dropdown-list:not(.w--open) {
-    display: none;
-  }
+.lightbox-cerrar {
+  position: absolute;
+  top: 8px;
+  right: 16px;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: #fff;
+  font-size: 40px;
+  line-height: 1;
+  cursor: pointer;
 }

@@ -1,8 +1,9 @@
 import { BASE_PATH } from "@/lib/basePath";
+import { BODY_CLASS_DEFAULT, BODY_CLASS_POR_RUTA } from "@/lib/bodyClass";
 import type { Metadata } from "next";
-import Script from "next/script";
 import Header from "@/components/Header"
 import Footer from "@/components/Footer";
+import BodyClass from "@/components/BodyClass";
 import './globals.css';
 
 export const metadata: Metadata = {
@@ -10,13 +11,16 @@ export const metadata: Metadata = {
   description: "Diracción General de Comunicación Social",
 };
 
+// Pone la clase de body correcta antes del primer pintado.
+const bodyClassScript = `(function(){var m=${JSON.stringify(BODY_CLASS_POR_RUTA)},b=${JSON.stringify(BASE_PATH)},p=location.pathname;if(b&&p.indexOf(b)===0)p=p.slice(b.length);p=p.replace(/\\/+$/,"")||"/";document.body.className=m[p]||${JSON.stringify(BODY_CLASS_DEFAULT)};})();`;
+
 export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="es" data-wf-page="68dd617b668359798a899405" data-wf-site="68dd617a668359798a8993c6" suppressHydrationWarning>
+    <html lang="es" suppressHydrationWarning>
       <head>
         <meta name="viewport" content="width=device-width, initial-scale=1"></meta>
         <link href={`${BASE_PATH}/css/normalize.css`} rel="stylesheet" type="text/css" />
@@ -30,17 +34,13 @@ export default function RootLayout({
           }}
         />
       </head>
-      <body className="body">
+      <body className={BODY_CLASS_DEFAULT} suppressHydrationWarning>
+        <script dangerouslySetInnerHTML={{ __html: bodyClassScript }} />
+        <BodyClass />
         <Header />
-        <main className="flex-1">
-          {children}
-        </main>
+        {children}
         <Footer />
         {/* <FloatingChat /> */}
-        <Script src="https://d3e54v103j8qbb.cloudfront.net/js/jquery-3.5.1.min.dc5e7f18c8.js?site=6a0f26f32dc742d2462b8347" type="text/javascript" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossOrigin="anonymous"/>
-        <Script src={`${BASE_PATH}/js/webflow.js`} type="text/javascript"/>
-        <Script src="https://cdn.prod.website-files.com/gsap/3.15.0/gsap.min.js" type="text/javascript"/>
-        <Script src="https://cdn.prod.website-files.com/gsap/3.15.0/ScrollTrigger.min.js" type="text/javascript"/>
       </body>
     </html>
   );

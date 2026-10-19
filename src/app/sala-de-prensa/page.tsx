@@ -65,7 +65,7 @@ export default function SalaPrensaPage() {
             <button
                 key={imagen.src}
                 type="button"
-                className="lightbox-link"
+                className="lightbox-miniatura"
                 onClick={() => setImagenActiva(imagen.src)}
                 aria-label={`Ampliar ${imagen.alt}`}
             >
