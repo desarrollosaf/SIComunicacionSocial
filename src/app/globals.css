@@ -36,6 +36,68 @@
   animation: nav-menu-abrir 400ms ease;
 }
 
+/*
+ * Ajuste del menú móvil (no viene en el diseño de Webflow): ahí el menú abierto
+ * se posiciona respecto a .navbar, que en el celular solo mide lo que queda a la
+ * derecha del logo, y queda como una caja angosta. Aquí se posiciona respecto
+ * al .header para que ocupe todo el ancho debajo de él.
+ */
+@media screen and (max-width: 991px) {
+  .header {
+    position: relative;
+    z-index: 1000;
+  }
+
+  .navbar.w-nav {
+    position: static;
+  }
+
+  .nav-menu.w-nav-menu[data-nav-menu-open] {
+    top: 100%;
+    left: 0;
+    right: 0;
+    width: auto;
+    max-height: calc(100dvh - 100px);
+    overflow-y: auto;
+    border-radius: 0 0 20px 20px;
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.12);
+  }
+
+  .nav-menu[data-nav-menu-open] .div-block-9 {
+    padding: 24px 16px;
+  }
+
+  /* Los dropdowns se abren dentro del menú, a todo lo ancho */
+  .nav-menu[data-nav-menu-open] .w-dropdown,
+  .nav-menu[data-nav-menu-open] .w-dropdown-list {
+    width: 100%;
+  }
+
+  /* padding a ambos lados igual para compensar la flecha y centrar el texto */
+  .nav-menu[data-nav-menu-open] .w-dropdown-toggle {
+    display: block;
+    padding-left: 40px;
+    text-align: center;
+  }
+
+  .nav-menu[data-nav-menu-open] .dropdown-list.w--open {
+    margin-top: 8px;
+    border-radius: 20px;
+    background-color: #f2f4f5;
+  }
+
+  .nav-menu[data-nav-menu-open] .w-dropdown-link {
+    text-align: center;
+    white-space: normal;
+  }
+
+  /* Webflow pinta el botón gris (#C8C8C8) al abrir; se deja sin fondo */
+  .menu-button.w-nav-button.w--open {
+    background-color: transparent;
+    color: inherit;
+  }
+}
+
 /* Lightbox de Sala de Prensa (antes lo hacía webflow.js) */
 .lightbox-miniatura {
   padding: 0;
