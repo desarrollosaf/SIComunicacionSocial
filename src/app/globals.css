@@ -14,16 +14,29 @@
   border: 0;
 }
 
-@media screen and (max-width: 991px) {
-  /* Mostrar hamburger */
+.section-2 {
+  position: relative;
+}
+
+/* Ocultar hamburger en desktop */
+.menu-button.w-nav-button {
+  display: none;
+}
+
+
+@media screen and (max-width: 1200px) {
+
+  /* Mostrar botón hamburguesa */
   .menu-button.w-nav-button {
     display: flex;
-    align-items: left;
+    align-items: center;
     justify-content: center;
     padding: 12px;
+    cursor: pointer;
+    flex-shrink: 0;
   }
 
-  /* Ocultar nav por defecto */
+  /* Menú móvil */
   .nav-menu.w-nav-menu {
     display: none;
     position: absolute;
@@ -31,61 +44,87 @@
     left: 0;
     right: 0;
     width: 100%;
+    max-width: 100%;
+    max-height: calc(100dvh - 80px);
+    overflow-y: auto;
+    overflow-x: hidden;
+    -webkit-overflow-scrolling: touch;
+    box-sizing: border-box;
     background: #fff;
     z-index: 500;
-    box-shadow: 0 6px 16px rgba(0,0,0,0.1);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
     padding: 10px 0 20px;
   }
 
-  /* Mostrar cuando está abierto */
+  /* Mostrar menú abierto */
   .nav-menu.w-nav-menu.w--nav-menu-open {
     display: flex;
     flex-direction: column;
     align-items: stretch;
   }
 
-  /* Links simples en móvil */
+  /* Enlaces */
   .nav-menu .link-block-3.w-inline-block {
-    padding: 10px 24px;
     display: block;
     width: 100%;
+    max-width: 100%;
     box-sizing: border-box;
+    padding: 12px 20px;
+    overflow-wrap: anywhere;
   }
 
-  /* Dropdowns en móvil: ancho completo, sin hover */
+  /* Contenedores dropdown */
   .nav-menu .w-dropdown {
     width: 100%;
+    max-width: 100%;
     position: relative;
-  }
-
-  .nav-menu .w-dropdown-toggle {
-    padding: 10px 24px;
-    width: 100%;
     box-sizing: border-box;
-    justify-content: center;
-    display: flex;
-    align-items: left;
-    gap: 6px;
   }
 
+  /* Botones de dropdown */
+  .nav-menu .w-dropdown-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 6px;
+    width: 100%;
+    max-width: 100%;
+    min-height: 44px;
+    padding: 12px 20px;
+    box-sizing: border-box;
+    white-space: normal;
+    text-align: left;
+  }
+
+  /* Listas desplegables */
   .nav-menu .dropdown-list.w--open {
     position: relative !important;
     top: auto !important;
+    left: auto !important;
+    right: auto !important;
     width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
     border-radius: 0;
     background-color: #f5f5f5;
     box-shadow: none;
     padding: 4px 0;
   }
 
+  /* Opciones dentro del dropdown */
   .nav-menu .w-dropdown-link {
-    padding: 8px 40px;
     display: block;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 10px 32px;
+    white-space: normal;
+    overflow-wrap: anywhere;
     text-align: left;
   }
 
-  /* Desactivar hover en móvil — solo click */
-  .nav-menu .w-dropdown:hover > .w-dropdown-list:not(.w--open) {
+  /* Evitar apertura por hover */
+  .nav-menu .w-dropdown:hover >
+  .w-dropdown-list:not(.w--open) {
     display: none;
   }
 }
