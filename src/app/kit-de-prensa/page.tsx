@@ -19,7 +19,7 @@ export default async function KitPrensaPage() {
         <div className="div-block-81">
           <h3 className="h3">Imagotipos Oficiales</h3>
           <p className="texto-general-bold">Contenido.</p>
-          <p className="texto-general">Logo principal<br/>Versiones horizontales verticales<br/>PNG, SVG, PDF, AI</p>
+          <p className="texto-general">Logo principal<br/>Versiones horizontales y verticales<br/>PNG, SVG, PDF, AI</p>
         </div>
         <a href={`${BASE_PATH}/logotipos-oficiales`} className="btn-var-3 w-button">Entrar</a>
       </div>
@@ -27,7 +27,7 @@ export default async function KitPrensaPage() {
         <div className="div-block-81">
           <h3 className="h3">Manual de Identidad</h3>
           <p className="texto-general-bold">Contenido.</p>
-          <p className="texto-general">Uso correcto de marca<br/>TipografíasColores institucionales<br/>Aplicaciones oficiales</p>
+          <p className="texto-general">Uso correcto de marca<br/>Tipografías y Colores institucionales<br/>Aplicaciones oficiales</p>
         </div>
         <a href="#" className="btn-var-3 w-button">Descargar</a>
       </div>

@@ -7,12 +7,15 @@ import SalaPrensaSection from '@/components/SalaPrensaSection';
 import SintesisSection from '@/components/SintesisSection';
 import TransmisionSection from '@/components/TransmisionSection';
 import { getDialogo } from './service/dialogo.api';
+import { getAgendaHome, getSesionReciente } from "./service/agenda.api";
 
 
 export default async function Page() {
     const boletines = await getBoletines();
     const dialogo = await getDialogo();
     const mainBoletines = boletines && boletines.length >= 5 ? boletines : null;
+    const { agendas, transmision } = await getAgendaHome();
+    const sesionUltima = await getSesionReciente();
     
   return (
     <section className="main">
@@ -23,7 +26,7 @@ export default async function Page() {
         <SalaPrensaSection></SalaPrensaSection>
         <SintesisSection></SintesisSection>
         <DialogoSection dialogo = { dialogo }></DialogoSection>
-        <TransmisionSection></TransmisionSection>
+        <TransmisionSection agenda={agendas}  ultimaSesion={sesionUltima?.[0]} transmision={transmision}></TransmisionSection>
         <RedesSocialesSection></RedesSocialesSection>
         
 
