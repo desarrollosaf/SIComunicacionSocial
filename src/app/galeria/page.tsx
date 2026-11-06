@@ -1,6 +1,44 @@
-import { BASE_PATH } from "@/lib/basePath";
+'use client';
 
-export default async function GaleriaPage() {
+import { BASE_PATH } from "@/lib/basePath";
+import { useEffect, useState } from "react";
+import { getBoletines } from "../service/boletines.api";
+
+interface Boletin {
+  id: number;
+  titulo: string;
+  descripcion?: string;
+  imagen?: string;
+  fecha?: string;
+}
+
+export default function GaleriaPage() {
+  const [boletines, setBoletines] = useState<Boletin[]>([]);
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+  const cargarBoletines = async () => {
+    try {
+      const respuesta = await getBoletines();
+
+      setBoletines(respuesta);
+    } catch (error) {
+      console.error('Error al cargar boletines:', error);
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
+  cargarBoletines();
+}, []);
+
+  const getFoto = (item?: any) => {
+      const path = item?.fotos?.[0]?.path;
+      return path
+          ? `https://sistema.congresoedomex.gob.mx/${path}`
+          : '/images/default-user.png';
+  };
+
   return (
   <>
   <section className="section-6">
@@ -23,13 +61,41 @@ export default async function GaleriaPage() {
         <a href="#" className="btn-var-action w-button">Ver comunicado</a>
       </div>
       <div className="div-galeria">
+        
         <div className="w-layout-grid grid-4">
-            <img src={`${BASE_PATH}/images/Logotiposoficiales.webp`} loading="lazy" sizes="(max-width: 479px) 48vw, (max-width: 2040px) 49vw, 1000px" srcSet={`${BASE_PATH}/images/Logotiposoficiales-p-500.webp 500w, ${BASE_PATH}/images/Logotiposoficiales-p-800.webp 800w, ${BASE_PATH}/images/Logotiposoficiales.webp 1000w`} alt="" className="img-centrada"/>
-            <img src={`${BASE_PATH}/images/Logotiposoficiales.webp`} loading="lazy" sizes="(max-width: 479px) 48vw, (max-width: 2040px) 49vw, 1000px" srcSet={`${BASE_PATH}/images/Logotiposoficiales-p-500.webp 500w, ${BASE_PATH}/images/Logotiposoficiales-p-800.webp 800w, ${BASE_PATH}/images/Logotiposoficiales.webp 1000w`} alt="" className="img-centrada"/>
-            <img src={`${BASE_PATH}/images/Logotiposoficiales.webp`} loading="lazy" sizes="(max-width: 479px) 48vw, (max-width: 2040px) 49vw, 1000px" srcSet={`${BASE_PATH}/images/Logotiposoficiales-p-500.webp 500w, ${BASE_PATH}/images/Logotiposoficiales-p-800.webp 800w, ${BASE_PATH}/images/Logotiposoficiales.webp 1000w`} alt="" className="img-centrada"/>
-            <img src={`${BASE_PATH}/images/Logotiposoficiales.webp`} loading="lazy" sizes="(max-width: 479px) 48vw, (max-width: 2040px) 49vw, 1000px" srcSet={`${BASE_PATH}/images/Logotiposoficiales-p-500.webp 500w, ${BASE_PATH}/images/Logotiposoficiales-p-800.webp 800w, ${BASE_PATH}/images/Logotiposoficiales.webp 1000w`} alt="" className="img-centrada"/>
-            <img src={`${BASE_PATH}/images/Logotiposoficiales.webp`} loading="lazy" sizes="(max-width: 479px) 48vw, (max-width: 2040px) 49vw, 1000px" srcSet={`${BASE_PATH}/images/Logotiposoficiales-p-500.webp 500w, ${BASE_PATH}/images/Logotiposoficiales-p-800.webp 800w, ${BASE_PATH}/images/Logotiposoficiales.webp 1000w`} alt="" className="img-centrada"/>
-        </div>
+          <div className="img-comunicado">
+                {isLoading ? (
+                  <div className="skeleton-box" style={{ width: 4170, height: 500,  borderRadius: 10 }} />
+              ) : (
+                   boletines.map((boletin) => (
+                  <div className="item-comunicado" key={boletin.id}>
+                    <div className="img-comunicado">
+                      <img
+                        src={getFoto(boletin)}
+                        loading="lazy"
+                        sizes="(max-width: 479px) 48vw, (max-width: 2040px) 49vw, 1000px"
+                        srcSet={`
+                          ${getFoto(boletin)} 500w,
+                          ${getFoto(boletin)} 800w,
+                          ${getFoto(boletin)} 1000w
+                        `}
+                        alt={boletin.titulo || 'Comunicado'}
+                        className="img-centrada"
+                      />
+                    </div>
+                    <div className="info-comunicado">
+                      <div className="fecha-boletin">
+                        {boletin.fecha}
+                      </div>
+                      <h3 className="titulo-boletin">
+                        {boletin.titulo}
+                      </h3>
+                    </div>
+                  </div>
+                ))
+              )}
+            </div>
+         </div>
       </div>
     </section>
   </section>
