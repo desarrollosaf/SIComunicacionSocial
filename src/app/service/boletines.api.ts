@@ -63,7 +63,7 @@ export async function getBoletines() {
 
   export async function getBoletinesTodos() {
     try {
-      const res = await fetch(`${getApiUrl()}/api/boletinesTodos`, { next: { revalidate: 10 } });
+      const res = await fetch(`${getApiUrl()}/api/boletines/boletinesTodos`, { next: { revalidate: 10 } });
       const text = await res.text();
 
       if (!res.ok) {
