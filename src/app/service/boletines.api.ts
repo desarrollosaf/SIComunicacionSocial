@@ -54,12 +54,36 @@ export async function getBoletines() {
       console.error('El backend no devolvió un JSON válido:', text);
       return [];
     }
-    
-
   // return await res.json();
   } catch (error) {
     console.error("Failed to fetch boletines:", error);
     return [];
   }
+}
+
+  export async function getBoletinesTodos() {
+    try {
+      const res = await fetch(`${getApiUrl()}/api/boletinesTodos`, { next: { revalidate: 10 } });
+      const text = await res.text();
+
+      if (!res.ok) {
+        console.error('Error backend:', text);
+        return [];
+      }
+      if (!text.trim()) {
+        console.error('El backend devolvió una respuesta vacía');
+        return [];
+      }
+      try {
+        // El body ya se leyó con res.text(); no se puede volver a leer con res.json()
+        return JSON.parse(text);
+      } catch {
+        console.error('El backend no devolvió un JSON válido:', text);
+        return [];
+      }
+    } catch (error) {
+    console.error("Failed to fetch boletines:", error);
+    return [];
+    }
 }
 

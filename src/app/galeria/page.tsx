@@ -2,7 +2,7 @@
 
 import { BASE_PATH } from "@/lib/basePath";
 import { useEffect, useState } from "react";
-import { getBoletines } from "../service/boletines.api";
+import { getBoletinesTodos } from "../service/boletines.api";
 
 interface Boletin {
   id: number;
@@ -19,7 +19,7 @@ export default function GaleriaPage() {
   useEffect(() => {
   const cargarBoletines = async () => {
     try {
-      const respuesta = await getBoletines();
+      const respuesta = await getBoletinesTodos();
 
       setBoletines(respuesta);
     } catch (error) {
@@ -38,6 +38,20 @@ export default function GaleriaPage() {
           ? `https://sistema.congresoedomex.gob.mx/${path}`
           : '/images/default-user.png';
   };
+
+  const formatearFecha = (fecha?: string) => {
+  if (!fecha) return '';
+
+  const date = new Date(`${fecha}T00:00:00`);
+
+  if (Number.isNaN(date.getTime())) return fecha;
+
+  return date.toLocaleDateString('es-MX', {
+    day: '2-digit',
+    month: 'long',
+    year: 'numeric',
+  });
+};
 
   return (
   <>
@@ -61,41 +75,29 @@ export default function GaleriaPage() {
         <a href="#" className="btn-var-action w-button">Ver comunicado</a>
       </div>
       <div className="div-galeria">
-        
         <div className="w-layout-grid grid-4">
-          <div className="img-comunicado">
-                {isLoading ? (
-                  <div className="skeleton-box" style={{ width: 4170, height: 500,  borderRadius: 10 }} />
-              ) : (
-                   boletines.map((boletin) => (
-                  <div className="item-comunicado" key={boletin.id}>
-                    <div className="img-comunicado">
-                      <img
-                        src={getFoto(boletin)}
-                        loading="lazy"
-                        sizes="(max-width: 479px) 48vw, (max-width: 2040px) 49vw, 1000px"
-                        srcSet={`
-                          ${getFoto(boletin)} 500w,
-                          ${getFoto(boletin)} 800w,
-                          ${getFoto(boletin)} 1000w
-                        `}
-                        alt={boletin.titulo || 'Comunicado'}
-                        className="img-centrada"
-                      />
-                    </div>
-                    <div className="info-comunicado">
-                      <div className="fecha-boletin">
-                        {boletin.fecha}
-                      </div>
-                      <h3 className="titulo-boletin">
-                        {boletin.titulo}
-                      </h3>
-                    </div>
-                  </div>
-                ))
-              )}
-            </div>
-         </div>
+        {isLoading ? (
+          <div className="skeleton-box" style={{ width: 4170, height: 500,  borderRadius: 10 }} />
+          ) : (
+              boletines.map((boletin) => (
+                <div key={boletin.id}>
+                    <img
+                      src={getFoto(boletin)}
+                      loading="lazy"
+                      sizes="(max-width: 479px) 48vw, (max-width: 2040px) 49vw, 1000px"
+                      srcSet={`
+                        ${getFoto(boletin)} 500w,
+                        ${getFoto(boletin)} 800w,
+                        ${getFoto(boletin)} 1000w
+                      `}
+                      alt={boletin.titulo || 'Comunicado'}
+                      className="img-centrada"
+                    />
+                    <p className="paragraph-4">{formatearFecha(boletin.fecha)}</p>
+                </div>
+              ))
+            )}
+        </div>
       </div>
     </section>
   </section>
