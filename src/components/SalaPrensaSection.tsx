@@ -13,19 +13,19 @@ export default function SalaPrensaSection() {
             <div className="div-section">
                 <div className="w-layout-grid grid-salaprensa">
                 <div className="div-card-v1" 
-                onClick={() => router.push(`kit-de-prensa`)} 
+                onClick={() => router.push(`/kit-de-prensa`)} 
                 >
                     <a className="link-block-4 w-inline-block"><img src={`${BASE_PATH}/images/auto_stories_250dp_BB945C.png`} loading="lazy" alt="" className="img-h-75-centro"/></a>
                     <h1 className="h4">Kit de prensa</h1>
                 </div>
                 <div className="div-card-v1" 
-                onClick={() => router.push(`sala-de-prensa`)}
+                onClick={() => router.push(`/sala-de-prensa`)}
                 >
                     <a className="w-inline-block"><img src={`${BASE_PATH}/images/badge_250dp_BB945C.png`} loading="lazy" alt="" className="img-h-75-centro"/></a>
                     <h1 className="h4">Sala de prensa</h1>
                 </div>
                 <div className="div-card-v1" 
-                onClick={() => router.push(`galeria`)} 
+                onClick={() => router.push(`/galeria`)} 
                 >
                     <a className="w-inline-block"><img src={`${BASE_PATH}/images/newspaper_250dp_BB945C.png`} loading="lazy" alt="" className="img-h-75-centro"/></a>
                     <h1 className="h4">Galería</h1>
