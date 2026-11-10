@@ -178,41 +178,31 @@ return (
 
           /* CONTENEDOR DE LOS 3 COMUNICADOS */
           <div className="gal-comunicados-grid">
-
             {comunicados.map((c) => {
-
               // Verificar si el comunicado está expandido
               const expandido = expandidos.has(c.id);
-
               // Mostrar primeras 5 fotos o todas
               const visibles = expandido
                 ? c.fotos
                 : c.fotos.slice(0, FOTOS_VISIBLES);
-
               // Fotos restantes
               const restantes =
                 c.fotos.length - visibles.length;
-
               // Verificar selección completa
               const todasSel = c.fotos.every((f) =>
                 seleccion.has(f.id)
               );
-
               return (
                 <article
                   key={c.id}
                   className="gal-grupo"
                 >
-
                   {/* HEADER DEL COMUNICADO */}
                   <header className="gal-head">
-
                     <div className="gal-head-info">
-
                       <span className="gal-fecha">
                         {formatearFecha(c.fecha)}
                       </span>
-
                       <h3 className="gal-titulo">
                         <Link href={`https://congresoedomex.gob.mx/boletines/${c.id}`}>
                           {c.titulo}
@@ -627,10 +617,19 @@ const estilos = `
 .gal-titulo {
   margin: 6px 0 0;
   font-size: 18px;
+  margin: 6px 0 0;
+  font-size: 18px;
   line-height: 1.3;
   font-weight: 700;
   color: var(--texto);
   overflow-wrap: anywhere;
+
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+
+  min-height: calc(18px * 1.3 * 2);
 }
 
 .gal-titulo a {
