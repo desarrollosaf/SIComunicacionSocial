@@ -251,7 +251,7 @@ return (
                           //   sel ? "is-sel" : ""
                           // }`}
                         >
-                        {/* <img src={fotoUrl(foto.path)} alt="" /> */}
+
                         
 
                           {/* ABRIR VISOR */}
@@ -701,13 +701,16 @@ const estilos = `
   /* Primera imagen grande */
 .gal-grupo .gal-foto:first-child {
   grid-column: 1 / -1;
-  aspect-ratio: 16 / 7;
+  aspect-ratio: 4 / 3;
+  width: 100%;
+  overflow: hidden;
 }
 
 /* Demás imágenes pequeñas */
 .gal-grupo .gal-foto:not(:first-child) {
   grid-column: auto;
-  aspect-ratio: 4 / 3;
+  aspect-ratio: 2 / 1;
+  width: 100%;
 }
 
 /* Todas las imágenes */
@@ -820,7 +823,7 @@ const estilos = `
 .gal-grupo .gal-mas {
    width: 100%;
   height: auto;
-  aspect-ratio: 4 / 3;
+  aspect-ratio: 2 / 1;
 
   grid-column: auto;
   grid-row: auto;
